@@ -1,0 +1,33 @@
+{
+    "name": "langqc-client",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "build": "webpack",
+        "start": "webpack serve --open",
+        "watch": "webpack watch",
+        "test": "jest --env=jsdom"
+    },
+    "author": "Genome Research Ltd",
+    "license": "GPL3",
+    "dependencies": {
+        "jest": "^28.1.0",
+        "lodash": "^4.17.21",
+        "svelte-loader": "^3.1.2"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.17.12",
+        "@babel/preset-env": "^7.17.12",
+        "@testing-library/jest-dom": "^5.16.4",
+        "@testing-library/svelte": "^3.1.1",
+        "babel-jest": "^28.1.0",
+        "file-loader": "^6.2.0",
+        "html-webpack-plugin": "^5.5.0",
+        "jest-environment-jsdom": "^28.1.0",
+        "node-sass": "^7.0.1",
+        "sass": "^1.50.1",
+        "svelte-jester": "^2.3.2",
+        "svelte-preprocess": "^4.10.6",
+        "webpack-dev-server": "^4.8.1"
+    }
+}
