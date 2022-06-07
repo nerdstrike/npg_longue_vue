@@ -1,4 +1,4 @@
-# Long Read QC Viewer
+# Long Read QC Viewer "longue-vue"
 
 ![LR QC logo](./static/placeholder-logo.png)
 
