@@ -7,8 +7,9 @@
         // See https://stackoverflow.com/a/69712388/3829437 - my kingdom for a <=>
     }
 
+    let pacBioPort = "8243";
     function generateSmrtLink(metrics) {
-        return `https://${metrics.sl_hostname}/sl/run_qc/${metrics.sl_uuid}`
+        return `https://${metrics.sl_hostname}:${pacBioPort}/sl/run-qc/${metrics.sl_run_uuid}`
     }
 </script>
 
