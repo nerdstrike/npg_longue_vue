@@ -6,6 +6,11 @@
         return Object.entries(metrics).sort((a, b) => (a[0] ?? 0).toString().localeCompare((b[0] ?? 0).toString()));
         // See https://stackoverflow.com/a/69712388/3829437 - my kingdom for a <=>
     }
+
+    let pacBioPort = "8243";
+    function generateSmrtLink(metrics) {
+        return `https://${metrics.sl_hostname}:${pacBioPort}/sl/run-qc/${metrics.sl_run_uuid}`
+    }
 </script>
 
 {#if run !== null}
@@ -30,6 +35,8 @@
         </tr>
     </table>
 </div>
+
+<a href={generateSmrtLink(run.metrics)}>View in SMRT&reg; Link</a>
 
 <div id="Metrics">
     <table>

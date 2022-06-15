@@ -7,7 +7,12 @@ export default class LangQc {
         this.urls = {
             inbox: this.buildUrl('pacbio/inbox', ['weeks=1']),
             run: this.buildUrl('pacbio/run', [])
-        }
+        };
+        this.commonHeaders = {
+            'Accept': 'application/json',
+            'Origin': 'https://*.dnapipelines.sanger.ac.uk',
+            'access-control-allow-origin': 'https://*.dnapipelines.sanger.ac.uk'
+        };
     }
 
     buildUrl(path, args) {
@@ -26,11 +31,7 @@ export default class LangQc {
         return fetch(
             this.getUrl('inbox'),
             {
-                headers: {
-                    'Accept': 'application/json',
-                    'Origin': 'https://*.dnapipelines.sanger.ac.uk',
-                    'access-control-allow-origin': 'https://*.dnapipelines.sanger.ac.uk'
-                }
+                headers: this.commonHeaders
             }
         ).then(
             response => response.json()
@@ -46,9 +47,7 @@ export default class LangQc {
         return fetch(
             this.buildUrl('pacbio/run', ['run_name='+name, 'well_label='+well]),
             {
-                headers: {
-                    'Accept': 'application/json'
-                }
+                headers: this.commonHeaders
             }
         ).then(
             response => response.json()

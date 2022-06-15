@@ -60,7 +60,7 @@
                 {/each}
             </td>
             <td>{run.time_start}</td>
-            <td>{run.time_complete}</td>
+            <td>{run.time_complete ? run.time_complete : ''}</td>
         </tr>
     {/each}
 </table>
