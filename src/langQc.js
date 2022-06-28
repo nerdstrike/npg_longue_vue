@@ -2,11 +2,14 @@ import { join } from "lodash";
 
 export default class LangQc {
     constructor(host) {
+        if (typeof host == 'undefined') {
+            throw Error('LangQc client must know where the web service is');
+        }
         this.host = host;
 
         this.urls = {
             inbox: this.buildUrl('pacbio/inbox', ['weeks=1']),
-            run: this.buildUrl('pacbio/run', [])
+            run: this.buildUrl('pacbio/run')
         };
         this.commonHeaders = {
             'Accept': 'application/json',
@@ -18,8 +21,9 @@ export default class LangQc {
     buildUrl(path, args) {
         let data_service = new URL(this.host);
         data_service.pathname = path;
-
-        data_service.search = '?' + join(args, "&");
+        if (Array.isArray(args)) {
+            data_service.search = '?' + join(args, "&");
+        }
         return data_service;
     }
 
@@ -55,6 +59,6 @@ export default class LangQc {
     }
 
     claimWell(name, well) {
-        throw('Not implemented');
+        throw Error('Not implemented');
     }
 }
