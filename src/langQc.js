@@ -49,7 +49,7 @@ export default class LangQc {
 
     getRunWellPromise(name, well) {
         return fetch(
-            this.buildUrl('pacbio/run', ['run_name='+name, 'well_label='+well]),
+            this.buildUrl(join(['pacbio','run',name,'well',well], '/')),
             {
                 headers: this.commonHeaders
             }
